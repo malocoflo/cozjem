@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CoZjem - Splash &amp; Scan</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary": "#8b5000",
+              "tertiary-container": "#5dac5b",
+              "primary-container": "#4caf50",
+              "outline-variant": "#becab9",
+              "on-secondary-container": "#653900",
+              "on-primary-container": "#003c0b",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#e6e9e7",
+              "surface-container": "#eceeec",
+              "surface-container-low": "#f2f4f2",
+              "tertiary-fixed-dim": "#88d982",
+              "on-background": "#191c1b",
+              "on-primary-fixed-variant": "#005313",
+              "on-secondary-fixed-variant": "#693c00",
+              "surface-variant": "#e1e3e1",
+              "on-secondary-fixed": "#2c1600",
+              "on-error-container": "#93000a",
+              "on-error": "#ffffff",
+              "primary": "#006e1c",
+              "surface": "#f8faf8",
+              "surface-bright": "#f8faf8",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#a3f69c",
+              "surface-dim": "#d8dad9",
+              "on-primary-fixed": "#002204",
+              "primary-fixed": "#94f990",
+              "on-tertiary-fixed-variant": "#005312",
+              "surface-container-highest": "#e1e3e1",
+              "error": "#ba1a1a",
+              "secondary-container": "#ff9800",
+              "on-surface-variant": "#3f4a3c",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#78dc77",
+              "inverse-on-surface": "#eff1ef",
+              "background": "#f8faf8",
+              "primary-fixed-dim": "#78dc77",
+              "on-tertiary-container": "#003c0a",
+              "surface-tint": "#006e1c",
+              "on-secondary": "#ffffff",
+              "secondary-fixed-dim": "#ffb870",
+              "outline": "#6f7a6b",
+              "on-tertiary-fixed": "#002204",
+              "inverse-surface": "#2e3130",
+              "tertiary": "#1b6d24",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed": "#ffdcbe",
+              "on-surface": "#191c1b"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Shell (Suppressed based on focused task, but Brand Header preserved) -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-sm h-16 grid grid-cols-3 items-center px-6 max-w-7xl mx-auto left-1/2 -translate-x-1/2">
+<div class="flex items-center justify-start">
+<span class="material-symbols-outlined text-green-700 cursor-pointer">menu</span>
+</div>
+<div class="flex justify-center">
+<h1 class="font-headline font-black text-2xl text-green-700 tracking-tighter italic">CoZjem</h1>
+</div>
+<div class="flex items-center justify-end">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User Profile" data-alt="close-up portrait of a smiling young man with friendly expression in natural soft lighting indoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7aJiVqPS3Erqtvkq0YgB3_j0jk91v6U0JlwyUCJMEer_7JsB9qdu6rGTJt-LWon8XionE9vvXt9CnK0CvEVt_v5V3bspiCdVt6EbvrzS2M1uIDencEx0kORoS6Uwx60xG1J4AYGXBW-5qDEMO09VeCOBLoeNfJahu2P5ZNfRcUNBQuRph9MOdqsYdftBMjUX43N6G2HcPyMJ9wWfJ5atdJDpkA5CG6ZwlYpqLjQ_-atrrGoOcr0SE755bN-LQWJe2rT3TRJJLzFbC"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 min-h-screen px-6 max-w-4xl mx-auto space-y-12">
+<!-- Hero Section: Editorial Headline -->
+<section class="relative">
+<h2 class="font-headline font-extrabold text-5xl md:text-7xl text-on-surface tracking-tight leading-[0.9] mb-4">
+                Co dziś<br/><span class="text-primary italic">gotujemy?</span>
+</h2>
+<p class="text-on-surface-variant max-w-xs text-lg leading-relaxed">
+                Zeskanuj swoją lodówkę i pozwól nam wyczarować coś pysznego.
+            </p>
+</section>
+<!-- Main Action: The Scanner -->
+<section class="relative aspect-[4/5] md:aspect-video rounded-xl overflow-hidden group">
+<div class="absolute inset-0 bg-zinc-900">
+<img alt="Refrigerator Interior" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="dramatic interior shot of a clean modern refrigerator filled with fresh vibrant vegetables and fruits in cool soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjn0taWvueyqgfz2xWVZfkX9OB9ACAkZXYNh7QrSWkrnxOMnkYPTn5lD5j3LlKfYYIT_KnpuNK0Kqy9QB73p8yqNeeeDSaQFZSDB_vdrG8PIuVJe5ZFRfGfZ8O1foomE3lcreepAKelKMzzEeqEVgKP4uAGskBFn7nVWZ8V7s27yB9j4dnwatATH2LggQAQ4SD4wZQrf8Jbrg2nQmX-y4IrFB9-kspBY_X6v0TXJ9MrMoTT93JnHOVDkWWghKzsrkmXSFdkAVNxrJY"/>
+</div>
+<div class="absolute inset-0 flex flex-col items-center justify-center space-y-8 p-8">
+<!-- Visual Scan Trigger -->
+<button class="relative flex flex-col items-center justify-center">
+<div class="absolute -inset-8 bg-primary/20 rounded-full blur-3xl group-hover:bg-primary/40 transition-colors duration-500"></div>
+<div class="w-32 h-32 rounded-full border-2 border-white/50 flex items-center justify-center glass-effect group-active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</div>
+<span class="mt-6 font-headline font-bold text-white text-xl tracking-wider uppercase">ZESKANUJ LODÓWKĘ</span>
+</button>
+<!-- Secondary Action -->
+<button class="bg-surface-container-lowest text-on-surface font-semibold py-4 px-10 rounded-full flex items-center gap-3 shadow-xl hover:bg-surface-container-low transition-all active:scale-95">
+<span class="material-symbols-outlined text-primary">image</span>
+                    Wybierz z galerii
+                </button>
+</div>
+<!-- Asymmetric Design Element: Animated Scan Line -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-50 blur-sm"></div>
+</section>
+<!-- Rapid Access: Szybkie Przepisy -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<span class="font-label font-semibold text-secondary tracking-widest uppercase text-xs">Na skróty</span>
+<h3 class="font-headline font-bold text-3xl">Szybkie przepisy</h3>
+</div>
+<button class="text-primary font-bold hover:underline flex items-center gap-1">
+                    Zobacz wszystkie <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</button>
+</div>
+<div class="flex overflow-x-auto gap-6 no-scrollbar -mx-6 px-6 pb-4">
+<!-- Recipe Card 1 -->
+<article class="flex-none w-64 md:w-80 group">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 shadow-sm bg-surface-container-low">
+<img alt="Salad Bowl" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="top-down shot of a colorful healthy grain bowl with avocado, radishes, and vibrant greens on a light ceramic surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3NASMo15LoqBvUD4kAQZrQKpqnN5v7KYgc88kGDcsSt1YIM0T4WgXh-4VBoRJnA2hSwMT3sc6j0PJB-5qRERvnqXbm8yVfhc-yp1jcUYjnbpwCCGtud5_NANWJx0gOf5_78_7JaDytnMU2bLTBzt-uTbloQ0sQWyKpS8rCH2A1vXcRMIMMICTArzPOTMatfUSIQc6ICHR5JVQIiBw8K-Hop29xQpPScus7Ns_OcgqR_G-jCaNC_Nu6WsjHBTQNhLP_X05y0u3Knb4"/>
+<div class="absolute top-4 left-4 glass-effect px-3 py-1.5 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="font-label font-bold text-[10px] text-on-surface">15 MIN</span>
+</div>
+<div class="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</div>
+</div>
+<h4 class="font-headline font-bold text-xl leading-snug">Wiosenny Bowl z Awokado</h4>
+<p class="text-on-surface-variant text-sm mt-1">Lekki lunch z tego, co masz pod ręką.</p>
+</article>
+<!-- Recipe Card 2 -->
+<article class="flex-none w-64 md:w-80 group">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 shadow-sm bg-surface-container-low">
+<img alt="Pasta Dish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="close-up of steaming pasta pomodoro with fresh basil leaves and parmesan shavings on a dark rustic plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy6bYqJsmPP3-ZFPVf2XgcIaZ97OSm90x3xbIFoqtV4UezJ5IFjewLoPMm0NhRn_Q99a_N8Ik8xHKLHxGNzld5uudvECW83Kn8ATM3dCbPWCKEDx1LaD0E49PxjKq3deBsN1KVpZYlxKPGZ0Kw95UTo1ImSPQ4HDAsq2jCm16K49IA89dVHdDe1AVnMySfn0Xa_ngu73FC9BfoHKjv7QDoVppBGW9D1oYCxQv2DQGcd1ztaeHMhHz53OHh6aGN-1p0RfmKZq6BMR_8"/>
+<div class="absolute top-4 left-4 glass-effect px-3 py-1.5 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="font-label font-bold text-[10px] text-on-surface">12 MIN</span>
+</div>
+<div class="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+</div>
+<h4 class="font-headline font-bold text-xl leading-snug">Pasta Pomodoro Express</h4>
+<p class="text-on-surface-variant text-sm mt-1">Klasyka, która nigdy się nie nudzi.</p>
+</article>
+<!-- Recipe Card 3 -->
+<article class="flex-none w-64 md:w-80 group">
+<div class="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 shadow-sm bg-surface-container-low">
+<img alt="Fruit Smoothie" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="overhead view of a creamy green smoothie in a glass surrounded by fresh spinach leaves and sliced fruit on a white marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5O72tc-f1asi-bCAPgsNFHnlhPXcHcP-qI0TiIsaiGs1Wa0RVe6o_lOcCL6v136NyVtNvK3WYtovrkB27SAIrVvI_mEnO2vrJfZX6bPe-5GCvx_ZcTmG5n37GrQk3qMJw5C8bFwdgtbkS9QpSpDwbcnc8LnG_HtHEvMaG4xP7HNYhNSKir48DQJ4FDp6mQGvrSJbE4UJFTFTrQnpk6JRRwQjDiXB2TDxLgCYEsOIkAiXsFZjKFwbH7UWd0imCYrWWhxgNHWQZO_GQ"/>
+<div class="absolute top-4 left-4 glass-effect px-3 py-1.5 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="font-label font-bold text-[10px] text-on-surface">5 MIN</span>
+</div>
+<div class="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</div>
+</div>
+<h4 class="font-headline font-bold text-xl leading-snug">Green Power Smoothie</h4>
+<p class="text-on-surface-variant text-sm mt-1">Bomba witaminowa w 5 minut.</p>
+</article>
+</div>
+</section>
+</main>
+<!-- Navigation Shell: BottomNavBar (Active: Home) -->
+<nav class="fixed bottom-0 left-0 w-full h-24 flex justify-around items-center px-8 pb-4 bg-white/80 backdrop-blur-2xl shadow-[0_-8px_32px_rgba(0,0,0,0.06)] rounded-t-xl z-50">
+<a class="flex flex-col items-center justify-center bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 rounded-full px-6 py-2 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label text-[11px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-6 py-2 hover:text-green-600 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label text-[11px] font-semibold uppercase tracking-widest mt-1">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-6 py-2 hover:text-green-600 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label text-[11px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button: Contextual for Scanning -->
+<button class="fixed bottom-28 right-6 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary-container text-white shadow-2xl flex items-center justify-center z-40 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

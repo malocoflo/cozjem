@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SnapChef - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#006e1c",
+                        "outline-variant": "#becab9",
+                        "on-primary-container": "#003c0b",
+                        "on-error": "#ffffff",
+                        "surface": "#f8faf8",
+                        "surface-container": "#eceeec",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1b",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#94f990",
+                        "secondary": "#8b5000",
+                        "on-secondary-container": "#653900",
+                        "inverse-on-surface": "#eff1ef",
+                        "on-secondary-fixed": "#2c1600",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffdcbe",
+                        "on-primary-fixed-variant": "#005313",
+                        "on-tertiary-fixed-variant": "#005312",
+                        "on-secondary-fixed-variant": "#693c00",
+                        "on-primary-fixed": "#002204",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e1e3e1",
+                        "surface-container-high": "#e6e9e7",
+                        "on-surface-variant": "#3f4a3c",
+                        "on-tertiary-fixed": "#002204",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#ff9800",
+                        "tertiary": "#1b6d24",
+                        "primary-fixed-dim": "#78dc77",
+                        "inverse-surface": "#2e3130",
+                        "inverse-primary": "#78dc77",
+                        "on-tertiary-container": "#003c0a",
+                        "surface-container-low": "#f2f4f2",
+                        "tertiary-fixed": "#a3f69c",
+                        "primary-container": "#4caf50",
+                        "surface-dim": "#d8dad9",
+                        "secondary-fixed-dim": "#ffb870",
+                        "background": "#f8faf8",
+                        "tertiary-container": "#5dac5b",
+                        "surface-container-highest": "#e1e3e1",
+                        "surface-bright": "#f8faf8",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1b",
+                        "tertiary-fixed-dim": "#88d982",
+                        "primary": "#006e1c",
+                        "outline": "#6f7a6b",
+                        "on-primary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-7xl mx-auto">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined text-green-700 dark:text-green-500">menu</span>
+</button>
+<h1 class="text-2xl font-black text-green-700 dark:text-green-500 tracking-tighter italic font-['Plus_Jakarta_Sans']">SnapChef</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container">
+<img alt="Profile" data-alt="close-up portrait of a friendly smiling man in a modern kitchen setting with soft warm natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrLzCGH2XBFxreA94hNOORG-Jo274QGLOYqoAE_uGaAi1_dvDjfHffku_HX5S7nCXq-ixZCNidYno_EjaLLAyhwDfcQlnOOuJ0kvhlNi8UqyhCxOBirKJ86pjWasFyBrJPOBqBSKL5TxgQ_sUC1ezHszxfNIER8ilYQ_zgTH_Xy4Cz4C0mFedplfNdt6IQ6fRUGFGaUig6YwiidHssRvdIgoTYKY4CXS6e00P-RpoWb3Hu6qzzaYO6bN33Z3HT1RcSmLRly3EVMGC2"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-10">
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface mb-3 leading-tight">What are we cooking today?</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-md">Scan your fridge and let us whip up something delicious.</p>
+</section>
+<!-- Scanner Card (The "Plated" Action Center) -->
+<section class="relative mb-12">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm p-8 border border-outline-variant/15 flex flex-col items-center text-center">
+<div class="w-full aspect-[4/3] rounded-lg mb-8 relative overflow-hidden group cursor-pointer bg-surface-container-low flex items-center justify-center">
+<img alt="Fridge Interior" class="absolute inset-0 w-full h-full object-cover opacity-20" data-alt="interior of a modern clean refrigerator filled with fresh vibrant vegetables and fruits in soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEM3o54AedXOwd9RhYf5elkNZ8klBzBdqnurdOkbiGvs7SsSwjQ9k1rvWB9wYYRFdiVJLk-pIisJB_MEC6BbzEy0m5eXal2mq9--jhlaWcCb-YULRphSDz_zzqsQD0PYsP2BRjXo3fOAhHBSZglWqPC5JrEGTu2kKAobT3o5pZ3jnU8s3R1dSxKa5nGmUlPmLZbwai1sSLkjqbLrVXFfNxGnaucI27PhB0vV84gbAyLSw0E4fhfXsqDblsq8J33EcCjOsc6D4UOSOn"/>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary-container flex items-center justify-center text-white mb-4 shadow-xl shadow-primary/20 scale-100 hover:scale-105 transition-transform duration-300">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</div>
+<span class="font-headline font-bold text-2xl tracking-tight text-primary">SCAN FRIDGE</span>
+</div>
+<!-- Viewfinder Corners -->
+<div class="absolute top-6 left-6 w-8 h-8 border-t-4 border-l-4 border-primary rounded-tl-lg"></div>
+<div class="absolute top-6 right-6 w-8 h-8 border-t-4 border-r-4 border-primary rounded-tr-lg"></div>
+<div class="absolute bottom-6 left-6 w-8 h-8 border-b-4 border-l-4 border-primary rounded-bl-lg"></div>
+<div class="absolute bottom-6 right-6 w-8 h-8 border-b-4 border-r-4 border-primary rounded-br-lg"></div>
+</div>
+<button class="flex items-center gap-2 px-8 py-3 rounded-full bg-surface-container-highest text-primary font-semibold hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">gallery_thumbnail</span>
+                    Choose from gallery
+                </button>
+</div>
+</section>
+<!-- Quick Recipes Section -->
+<section class="mb-8">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-1 block">Curated For You</span>
+<h3 class="text-2xl font-bold tracking-tight">Quick Recipes</h3>
+</div>
+<button class="text-primary font-semibold text-sm">View all</button>
+</div>
+<!-- Horizontal Scroll Bento List -->
+<div class="flex gap-6 overflow-x-auto pb-6 -mx-6 px-6 no-scrollbar">
+<!-- Recipe Card 1 -->
+<div class="min-w-[280px] group">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:-translate-y-1">
+<div class="h-48 relative">
+<img alt="Spring Avocado Bowl" class="w-full h-full object-cover" data-alt="vibrant healthy spring avocado bowl with radishes, chickpeas, and fresh greens on a white ceramic plate in bright airy lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3AJ_lw_DjddOeYqr7GOqIBDfq2FbtOrBfDUq9xd53TGUUiRLoOnEx675YqrtLgxtILitLwcF-vcmdpCzAuZTKoX76X_7fyCDPSHXKo_T2gjWM1Wwz46FJEWPXjvGaRRF5tN81MZ2hWPElEXfM9ytGzWbdT2wNh0r2Zm7b62PrOR9714XqD5zo7Xu9-iHC20dC8sFaSFpXbVsVBcmx4NbAdPslybOIKBRxBwxYNbpgQbeUNt6yiCX5-GNxQCDFWr5yYe7oLW26oy-o"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md rounded-full p-2 text-on-surface">
+<span class="material-symbols-outlined text-xl">bookmark</span>
+</div>
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider rounded-full backdrop-blur-md">15 MINS</span>
+</div>
+</div>
+<div class="p-5">
+<h4 class="font-headline font-bold text-lg mb-1 group-hover:text-primary transition-colors">Spring Avocado Bowl</h4>
+<p class="text-sm text-on-surface-variant line-clamp-1">Fresh greens with lemon-tahini dressing</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.8</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Easy level</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recipe Card 2 -->
+<div class="min-w-[280px] group">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm transition-transform duration-300 hover:-translate-y-1">
+<div class="h-48 relative">
+<img alt="Citrus Salmon" class="w-full h-full object-cover" data-alt="pan-seared salmon fillet with orange slices and fresh dill garnish on a minimalist plate with elegant soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeT-T93jQTM7x0Kv62-RE7f1zBk6DA_I2SS494DKL-T4aTbHeR5gt5BTP-N28nxVwL8ab8ZHl3pvWRLGeUsY8bQANUs-a7IMA9k_uB6qlnCj6eKNiK7BSxzSfNEDoBzNhwjk_5WisvR2LoeDpW_DHncUNbXtZ1krw5QJJwO24BOvfVS__BWFLP0FF2KmGYhGg3ovieKYXXMAt6gMgFR5dMdCntTijoLqx5lLVZV7G-I4mHtdNXeK-MQ9ZLpVO6NV9V9MPxbQ2QS2SZ"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md rounded-full p-2 text-on-surface">
+<span class="material-symbols-outlined text-xl">bookmark</span>
+</div>
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider rounded-full backdrop-blur-md">20 MINS</span>
+</div>
+</div>
+<div class="p-5">
+<h4 class="font-headline font-bold text-lg mb-1 group-hover:text-primary transition-colors">Citrus Glazed Salmon</h4>
+<p class="text-sm text-on-surface-variant line-clamp-1">Pan-seared with orange and dill</p>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Medium level</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Ingredient Floating Plate (Custom Component) -->
+<section class="mb-12">
+<h3 class="text-xl font-bold tracking-tight mb-6">Popular Staples</h3>
+<div class="flex gap-6 overflow-x-auto no-scrollbar py-2">
+<div class="flex flex-col items-center gap-3">
+<div class="w-20 h-20 rounded-full bg-surface-container-lowest shadow-lg shadow-on-surface/5 flex items-center justify-center p-4">
+<img alt="Spinach" class="w-full h-full object-contain" data-alt="isolated fresh green spinach leaves cutout on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkIsraAtI73YLsWW2W9MkprS4drDbSiWiFWxmPz_bKFRzDi7CV_b7DP9GU_v9AbPQMNRWn7QGyFMAgp13B2mYZyTVI97jsxV46ra1Fx09dAkDXcqUkXfNlumNxcFaP6flrRBmtHbppj8l2MCG82i4OuT1IhQwpo5vG0aV6LwPBvpcnoMQLG7sXUH4tqtwx6z77C5zZH5no7uztA00tBgyWkW1nAtMk8kdL0sUq_e_i3YT1NzRb1EPz11-mTGGWrNhu4K1sRDKfpUwv"/>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Spinach</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-20 h-20 rounded-full bg-surface-container-lowest shadow-lg shadow-on-surface/5 flex items-center justify-center p-4">
+<img alt="Tomato" class="w-full h-full object-contain" data-alt="isolated ripe red tomato cutout on white background with realistic highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFZyVQZ4fyIYCDf0hu5Fz8q0opuuH046vJRfmdU-yIoHs74IhqHBHuDXutONYrFzcuBowQANMpevx5muxJ_YOR5as_R_0OQ8EBxtZcMgwGvzwPdL7PR9NrYT5CWZmb6s25-L5XVmfzWWlPEAdDZwg41EdZPfXbYlrNqJZ1xgu_f4rLCSu4h4CtulSaNy-px4Bib_s9iKNdZk9SwBdbBep1WRva4-AdzU8CUlaCI9vjusaNDgXJKWSN8mTnxvT05kJ_Ysrqns4u2pwO"/>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Tomato</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-20 h-20 rounded-full bg-surface-container-lowest shadow-lg shadow-on-surface/5 flex items-center justify-center p-4">
+<img alt="Egg" class="w-full h-full object-contain" data-alt="isolated white farm fresh egg cutout on white background with soft shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo3PpuQY7OnFwVB1BNrS0en8_Obyz6WyJ1cORCmO-EoXW713ExKpYrQ8tbF2np3EnbI6gK9D4p7MvgnyhF2VWaLzzIdPKh29NLel_mkk0gaHQ7THRg2oEx902MlkREKc-tLwD1I0pt8fmsS_nlP9XwN5v2ci1NYX2DsoKNjzgIgPZXx17mjGA-NnZqIIpiGLw3aBep7fkH6JPtAdEKknfELqbM6ijXv7D_AN-hrwiOmuDUAAe2GBMKqX_8bvbcacoKvcERK6GuBf-r"/>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Eggs</span>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="w-20 h-20 rounded-full bg-surface-container-lowest shadow-lg shadow-on-surface/5 flex items-center justify-center p-4">
+<img alt="Avocado" class="w-full h-full object-contain" data-alt="isolated perfectly ripe halved avocado with pit cutout on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD76kNkEdxdo_sMM1e3q5YcB7hi88w4OPos8ofnfAWSEMtD7VJl61nKrRSqXbBk4VzBzOtgfwg0l5f8euGdKkRQjuVzLz8UHv2k5NxzDapA1fKB_oaAMCccAOT5_ShioNisqytXpOvdSY2U7n72h1dwYY1i8hIankr5zGvUwluv8KnXltyCtCT5lcL5wvMC1Y3b6on3I9fq35ymtvJXL5DZrx3b3-HPsCcVVt-qvMFhJBAtNKvQpYWh_OIgmHjFb_0rx0x2GoCjFl8Z"/>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Avocado</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-24 flex justify-around items-center px-8 pb-4 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-2xl shadow-[0_-8px_32px_rgba(0,0,0,0.06)] z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 rounded-full px-6 py-2 transition-transform duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-6 py-2 hover:text-green-600 dark:hover:text-green-400 transition-transform duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-6 py-2 hover:text-green-600 dark:hover:text-green-400 transition-transform duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button - Supressed as per Relevance Check for Home screen context if navigation is present, but kept if it was meant for primary action. Given instructions: "suppress the FAB on Settings, Profile, Details, and Transactional screens". Since this is Home, we could have one, but the main scan action is already prominent in the layout. -->
+</body></html>

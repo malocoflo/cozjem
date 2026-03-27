@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary": "#8b5000",
+              "tertiary-container": "#5dac5b",
+              "primary-container": "#4caf50",
+              "outline-variant": "#becab9",
+              "on-secondary-container": "#653900",
+              "on-primary-container": "#003c0b",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#e6e9e7",
+              "surface-container": "#eceeec",
+              "surface-container-low": "#f2f4f2",
+              "tertiary-fixed-dim": "#88d982",
+              "on-background": "#191c1b",
+              "on-primary-fixed-variant": "#005313",
+              "on-secondary-fixed-variant": "#693c00",
+              "surface-variant": "#e1e3e1",
+              "on-secondary-fixed": "#2c1600",
+              "on-error-container": "#93000a",
+              "on-error": "#ffffff",
+              "primary": "#006e1c",
+              "surface": "#f8faf8",
+              "surface-bright": "#f8faf8",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#a3f69c",
+              "surface-dim": "#d8dad9",
+              "on-primary-fixed": "#002204",
+              "primary-fixed": "#94f990",
+              "on-tertiary-fixed-variant": "#005312",
+              "surface-container-highest": "#e1e3e1",
+              "error": "#ba1a1a",
+              "secondary-container": "#ff9800",
+              "on-surface-variant": "#3f4a3c",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#78dc77",
+              "inverse-on-surface": "#eff1ef",
+              "background": "#f8faf8",
+              "primary-fixed-dim": "#78dc77",
+              "on-tertiary-container": "#003c0a",
+              "surface-tint": "#006e1c",
+              "on-secondary": "#ffffff",
+              "secondary-fixed-dim": "#ffb870",
+              "outline": "#6f7a6b",
+              "on-tertiary-fixed": "#002204",
+              "inverse-surface": "#2e3130",
+              "tertiary": "#1b6d24",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed": "#ffdcbe",
+              "on-surface": "#191c1b"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8faf8;
+        color: #191c1b;
+      }
+      h1, h2, h3 {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface min-h-screen pb-32">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<nav class="flex justify-between items-center px-6 h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-700 dark:text-green-500">menu</span>
+</div>
+<h1 class="text-2xl font-black text-green-700 dark:text-green-500 tracking-tighter italic font-['Plus_Jakarta_Sans']">CoZjem</h1>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant/20">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional headshot of a smiling user in soft natural lighting with a blurred kitchen background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJWSucVxtmp_-TaLPZsT_aWW_zniH_KbQ1kjp9VinNARCjPTUllhxbZLmJ_bXBYigYCr3PTOSWKnm5uLV4mzMBuUASZ7InXqz1O3FioejTXzSPyxHkY_y69Ykwo4cIQU4nj7UJZlmb357M1mdochQqrigjENH4YTCTXOUYogN825uXDscCE8E_Y_j_Eb1NeDHfbJroCpnKDyaYMIFAfJ5CQVXeS7KuBGInaYbQoysZFWK_apukp2CS1_kteYOHN1oII33pK_BUFoew"/>
+</div>
+</nav>
+</header>
+<main class="pt-24 px-6 max-w-7xl mx-auto">
+<!-- Hero Layout: Asymmetric Bento Style -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Left: Fridge Visual -->
+<div class="md:col-span-7 relative group">
+<div class="aspect-[4/5] md:aspect-square rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="bright interior of a modern refrigerator organized with fresh vegetables, milk cartons, eggs, and glass containers in soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkkYRziXMvfq0x-zmkJwr-5dJzv6JoYbAxlEBO2YuXYUdQTPnrXpSIPKxEsWgb4RI5is0xqZkn2zLSwD12gBssZrOnhPpno5WLTWpX0Qwuh4ZSfxEs3Ex9kucVtCSRmv41qY-EOXwj3AKqhNauNUdfj-Tr2lmLglhNlaJPg-K0cT6oD4yNm3xHunXl8f2d79OP_dzOMxr3nqgVUk9VcKA_SVWNfh1607Q2_meDZj7Xf5B0kqp9EVPHWJnKraT7hiMmaDqol3NQcx73"/>
+<!-- Glass Overlay Info -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 p-6 glass-effect bg-white/20 rounded-lg border border-white/20">
+<p class="text-white font-headline font-bold text-xl leading-tight">Analiza Twojej lodówki zakończona sukcesem.</p>
+<p class="text-white/80 text-sm mt-1">Zidentyfikowaliśmy 3 główne składniki.</p>
+</div>
+</div>
+</div>
+<!-- Right: Ingredient Control Panel -->
+<div class="md:col-span-5 flex flex-col gap-8">
+<div>
+<span class="label-md font-label uppercase tracking-widest text-secondary font-bold text-[0.75rem]">Potwierdź zawartość</span>
+<h2 class="text-3xl font-headline font-extrabold tracking-tight mt-2 text-on-surface">Co masz w środku?</h2>
+</div>
+<!-- Ingredient List -->
+<div class="flex flex-col gap-4">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-5 bg-surface-container-lowest rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.04)] border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">egg</span>
+</div>
+<span class="font-headline font-bold text-lg text-on-surface">Jajka</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-error-container hover:text-on-error-container transition-colors duration-200">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-5 bg-surface-container-lowest rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.04)] border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">water_drop</span>
+</div>
+<span class="font-headline font-bold text-lg text-on-surface">Mleko</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-error-container hover:text-on-error-container transition-colors duration-200">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center justify-between p-5 bg-surface-container-lowest rounded-lg shadow-[0_8px_32px_rgba(0,0,0,0.04)] border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">nutrition</span>
+</div>
+<span class="font-headline font-bold text-lg text-on-surface">Pomidory</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-error-container hover:text-on-error-container transition-colors duration-200">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</div>
+<!-- Add Ingredient Input -->
+<div class="mt-4">
+<label class="block label-md font-label uppercase tracking-widest text-on-surface-variant mb-3 font-semibold text-[0.75rem]">Brakuje czegoś?</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container border-none h-16 px-6 rounded-lg text-on-surface focus:ring-2 focus:ring-primary/20 placeholder:text-outline font-body" placeholder="Dodaj składnik" type="text"/>
+<button class="absolute right-3 w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Main Action -->
+<div class="mt-4">
+<button class="w-full h-18 py-5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-lg shadow-[0_8px_32px_rgba(0,110,28,0.15)] hover:scale-[1.02] active:scale-95 transition-all duration-300">
+                        ZNAJDŹ PRZEPISY
+                    </button>
+</div>
+</div>
+</div>
+<!-- Ingredient Floating Plate Section (Editorial Style) -->
+<section class="mt-20">
+<h3 class="text-xl font-headline font-bold mb-8">Popularne dodatki</h3>
+<div class="flex overflow-x-auto gap-6 pb-8 no-scrollbar">
+<div class="flex-shrink-0 flex flex-col items-center gap-3">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center p-2">
+<img class="w-full h-full object-cover rounded-full" data-alt="high resolution cutout of a block of parmesan cheese on a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYXdUP6t1yMI__ck5_W9L2gxXryKhCd7O4HNLeu1usk4diVB8dnDyKOOKpLnois4NkGv3oDXBTfqYrBg2WfTmmiavqd8SkgDVvRhtSpURSex-aaV4c5H580FyXWCgnHLdvPxj4l0MBBFU6ccarOCeapt9dXkiaDgwWFFS41hqTCXYnH360rt4y8lmS76sjiZFpfdXsbUTLz7TdqiokCBgTS73QyK8nhI0EvRy4KloPe-9eIMGbi2IYOw5jAyFLeyFLbyGycniBTtm2"/>
+</div>
+<span class="text-sm font-semibold">Ser</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-3">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center p-2">
+<img class="w-full h-full object-cover rounded-full" data-alt="high resolution cutout of fresh garlic cloves on a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBht8YX22u7XuupsvLkieSXqu9OGtm-f_ezAqi20Bqaq7EV3JKqJXUGYWl9LIBxTllHgRbeH0MHFb-cpCCG6YCwgwIRNSKtEIoVVeljXpqqtYm_3Z4nVCp6RZBxq9kbSuP4NNW5J7G6V6oKXGOFwat6MjkXKGDsSG5ZCLu9idl5W9WuNem8cBLqoS0-l8CvD6_I-WvkViAVuaZSBAlFhDZR4M9Hy70DfjQ1DpmUXrLs7sAqK-anYdYdPxBfNl8_A6Jh8WAa49b26fCx"/>
+</div>
+<span class="text-sm font-semibold">Czosnek</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-3">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center p-2">
+<img class="w-full h-full object-cover rounded-full" data-alt="high resolution cutout of green onions and scallions on a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnxTAxbEIDYeBVvV-LVbeDFqsgXmFXCagCfL4zVuHUVcxAb050q1Kn9yQapvL5QH-5nFv1DU2-ozwuhWKXAdtr66OOXLZWd5trWohZcPzuMz3il5xKoiBMHZe3YSHacGTA0-09EwCxRxi1HmbpI1r577HY6yipHCDehIE5x0ZtL26aVl1bdEdYy3J88XyTSXGO6W-67CzRg2vCeHZXrb61Dm8a7afCUEJr86UlA2l4H9rt9ceqOOzzr6wOb0XAsHLlXNh7-2DXJqsE"/>
+</div>
+<span class="text-sm font-semibold">Cebula</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-3">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest shadow-md flex items-center justify-center p-2">
+<img class="w-full h-full object-cover rounded-full" data-alt="high resolution cutout of a block of creamy yellow butter on a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_CewUjPusCRiKxNRpCt3kP4uPeRIXu79KsgyINN1TpUqIGrNOKxw_5nDkj9rfpC_oy9ekKr_bCdBqOO6HiVAZfoFivrjqkmKXZJLthuGfFD6___lfqh2HcKpNXYTqjoseCybTTs85Dv9nsxxPRLtjtJWhFFVZNS7H3cSvk7llAWCempCv9S-87cphJVW60UEwP1Q6CjFd_EePYC2t6iXjHLZASCIBcklACsaqSwqBRriQn4PWPfa1Yc9fn84w98IiV9pgGqdta550"/>
+</div>
+<span class="text-sm font-semibold">Masło</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full h-24 flex justify-around items-center px-8 pb-4 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-2xl rounded-t-[3rem] z-50 shadow-[0_-8px_32px_rgba(0,0,0,0.06)]">
+<a class="flex flex-col items-center justify-center bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 rounded-full px-6 py-2 active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-weight="fill">home</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-6 py-2 hover:text-green-600 dark:hover:text-green-400 active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-6 py-2 hover:text-green-600 dark:hover:text-green-400 active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#006e1c",
+              "outline-variant": "#becab9",
+              "on-primary-container": "#003c0b",
+              "on-error": "#ffffff",
+              "surface": "#f8faf8",
+              "surface-container": "#eceeec",
+              "on-error-container": "#93000a",
+              "on-background": "#191c1b",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#94f990",
+              "secondary": "#8b5000",
+              "on-secondary-container": "#653900",
+              "inverse-on-surface": "#eff1ef",
+              "on-secondary-fixed": "#2c1600",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#ffdcbe",
+              "on-primary-fixed-variant": "#005313",
+              "on-tertiary-fixed-variant": "#005312",
+              "on-secondary-fixed-variant": "#693c00",
+              "on-primary-fixed": "#002204",
+              "error": "#ba1a1a",
+              "surface-variant": "#e1e3e1",
+              "surface-container-high": "#e6e9e7",
+              "on-surface-variant": "#3f4a3c",
+              "on-tertiary-fixed": "#002204",
+              "error-container": "#ffdad6",
+              "secondary-container": "#ff9800",
+              "tertiary": "#1b6d24",
+              "primary-fixed-dim": "#78dc77",
+              "inverse-surface": "#2e3130",
+              "inverse-primary": "#78dc77",
+              "on-tertiary-container": "#003c0a",
+              "surface-container-low": "#f2f4f2",
+              "tertiary-fixed": "#a3f69c",
+              "primary-container": "#4caf50",
+              "surface-dim": "#d8dad9",
+              "secondary-fixed-dim": "#ffb870",
+              "background": "#f8faf8",
+              "tertiary-container": "#5dac5b",
+              "surface-container-highest": "#e1e3e1",
+              "surface-bright": "#f8faf8",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#191c1b",
+              "tertiary-fixed-dim": "#88d982",
+              "primary": "#006e1c",
+              "outline": "#6f7a6b",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen pb-32">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-7xl mx-auto">
+<button class="text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors p-2 rounded-full active:scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-2xl font-black text-green-700 dark:text-green-500 tracking-tighter italic font-['Plus_Jakarta_Sans']">SnapChef</h1>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden ring-2 ring-primary/10">
+<img alt="Profile" data-alt="close up portrait of a smiling user in a soft professional studio lighting, warm skin tones and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU5b8E1cqmyEeK6x9V0Pg1-luJxwNK4jOAlHg-FR4c2g9xGXvu16BC0teGgA88crhUJyeXBhmQOKgfPWAFJ6GSQwI3TSgKYXDqVnFB4kYrP5E8DdP-0VpOHOJRQfGvw8Lfv2WObrV1TWpQr08JhXa102gP-SkOlrZ5hNGzht_cF1WoArsF1YalyhEvygvefxemHRMOcdngKy36rUZ02cm7WV1df0U3QirIO0NMsdaphZZCV9JTAGPIMTPmtIVmcYbj78_0gtOvZd0h"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-10 space-y-2">
+<span class="font-label text-[11px] font-bold uppercase tracking-[0.2em] text-secondary">SEARCH RESULTS</span>
+<h2 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface">Inspiration for You</h2>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-3 mb-12 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-6 py-2.5 bg-secondary-container text-on-secondary-container rounded-full font-label text-sm font-semibold transition-all active:scale-90">
+                All
+            </button>
+<button class="px-6 py-2.5 bg-surface-container-high text-on-surface-variant rounded-full font-label text-sm font-semibold hover:bg-zinc-200 transition-all active:scale-90">
+                Quick (under 20 min)
+            </button>
+</div>
+<!-- Bento-Style Recipe Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Recipe Card 1: Main Highlight -->
+<div class="lg:col-span-2 group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-500">
+<div class="aspect-[16/9] overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Top down view of a vibrant green power bowl with avocado, spinach, quinoa, and soft boiled egg on a minimalist ceramic plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyRNwOUnHjYyw7K_uRgdd4MX5SOaf-0yEzlTLyxCGMiaRFLSTYwg2ag-zzd0b_USnefoImKut3cD_sbJXeTLRNqQDjJMjLjdykZ_NLWl49UN51E4bOUzc5snLTEP0BzKIwmK4X0uflNukVb9Cf_ecJY2TByulNAnYDxIC8Po4_m_bDlwKrntnIb19uMHTnYjRAKktUdZYo0UPcM_98akD2vVQOMaApmF4MI8t4qmkU_FDP0TjiauOTgS8qPCDMPR6WYTPE3a8FqdVE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+</div>
+<div class="absolute bottom-0 left-0 p-8 w-full text-white">
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<span class="font-label text-[10px] font-bold uppercase tracking-widest bg-white/20 backdrop-blur-md px-3 py-1 rounded-full">15 MIN</span>
+<h3 class="font-headline text-3xl font-bold">Green Power Bowl</h3>
+<p class="text-white/80 font-body text-sm font-medium">You have 4 of 5 ingredients</p>
+</div>
+<button class="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center group-hover:bg-primary-container group-hover:border-transparent transition-all">
+<span class="material-symbols-outlined text-white" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Recipe Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Traditional Italian pizza margherita with fresh basil leaves, bubbling mozzarella, and rich tomato sauce on thin charred crust" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI6EgyD8asPDn72cuLXbJjSSj2gG2xXJWG_4l-1BdAZBQI97jlAeSoc0NbrEh8_IR6uiFmteoWLPJnFDT9gIDetNZXOnAimJIczOSMH707OErW2vIl_jN0rqi-t8OjV0xVQVp8PldEGDaeWqWmSFTS-4d0J2GL1cZo_idCWLcXnvfD5ziWIHoWo-9EvjucfOOwTQ0i_IXPNO3PUcAHdkDfLtufP8_sw1ikNo57VCVJk7nbT0GXgclem7UvJfXWDQeEv0r0Ug8mmg-u"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold tracking-widest text-on-surface">25 MIN</div>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Pizza Margherita Verace</h3>
+<p class="text-outline font-body text-sm mt-1">You have 4 of 5 ingredients</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-1 flex-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[80%]"></div>
+</div>
+<span class="text-[10px] font-bold text-primary">80%</span>
+</div>
+</div>
+</div>
+<!-- Recipe Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Elegant bowl of fresh salmon poké with edamame, radish slices, and sesame seeds in a minimalist Japanese aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0GBzTsTBRCvTwTgJXqFVrEY9wUZz5J8woidku3pjZ8nRpsapOwN50wvyeHvG6aXHTBfn2lWQTyegCjZiU831qBCy0YY0ZRF8ACBm8IJPk1St52LZ22BXBrAxUMUe6sKnusRJ9BU_pgn9qjwBEoqBvG4F2Lj7_oyhZTRS1-p6CVoFrR0afWrgZsUego25sNBRoh_YICvujvBM0-7eBSbX06rj6Xnr6D-sVIyqmARPM4qFooXngJ1qEO8s4Ag7Q_rzlXOVd_2N0h2_D"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold tracking-widest text-on-surface">12 MIN</div>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Fresh Salmon Poké</h3>
+<p class="text-outline font-body text-sm mt-1">You have 4 of 5 ingredients</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-1 flex-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[80%]"></div>
+</div>
+<span class="text-[10px] font-bold text-primary">80%</span>
+</div>
+</div>
+</div>
+<!-- Recipe Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Rustic wooden table with a plate of creamy pasta carbonara, topped with black pepper and parsley in natural window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyAyMiIC3FIsrs8Ce2Aj3fiUDZBdfTgBcD4ooZ0JwoltzbdOBxhQPKNHoD-MzqiqH0GRdq_bpbQAjZf9um-lG-6vG6aWNEFoiDJuAFU9edx5YtfdF8JIxQe5KA2VP3TMhnx5pZIuDQWXvNP2SvznIUM6ZXW9G-dq4muaFSE-Yu9jbwL8633PYllIpURjuEIS5IKzEsDtA3BV6Kok-uKyg5ugyjtj_gwm8yb_IEbNk1nCncMf7xV6xBTSjta0RbsitlM44_KG8_gAAj"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold tracking-widest text-on-surface">20 MIN</div>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Creamy Herb Pasta</h3>
+<p class="text-outline font-body text-sm mt-1">You have 4 of 5 ingredients</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-1 flex-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[80%]"></div>
+</div>
+<span class="text-[10px] font-bold text-primary">80%</span>
+</div>
+</div>
+</div>
+<!-- Recipe Card 5 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Healthy autumn harvest salad with roasted sweet potatoes, pomegranate seeds, and walnuts on a dark rustic surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5F13V6MpHmK1wLcgQGDZnAnLmh7S8iqO9m_30nOZKnFoKzT7FczlTGRIQUuY8JsBAZPkDmBpPjhbNmBiOQZLY-k2saJ-ScofMyl4iY6w8XMSsoqKih1rdE95DkhX19iyM2M4R3jOxx2neEpQTWn3eruP1k0mDODn6vSLhbCd7ZKlgAz-q_nVeAnwRlPDJ1qSjbjx04KQ19U-4fXaMA3mAuxD43Gmh7rufjwC0_qGgtLEqY31AEobgGUP6F9mYfMxZJOfee7kmxd_o"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold tracking-widest text-on-surface">15 MIN</div>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Harvest Grain Salad</h3>
+<p class="text-outline font-body text-sm mt-1">You have 4 of 5 ingredients</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-1 flex-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[80%]"></div>
+</div>
+<span class="text-[10px] font-bold text-primary">80%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Section -->
+<div class="mt-16 mb-24 flex justify-center">
+<button class="px-10 py-4 rounded-full bg-gradient-to-br from-primary to-primary-container text-white font-headline font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
+                Load more recipes
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full h-24 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-2xl flex justify-around items-center px-8 pb-4 z-50 shadow-[0_-8px_32px_rgba(0,0,0,0.06)] rounded-t-[3rem]">
+<a class="flex flex-col items-center justify-center bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 rounded-full px-6 py-2 active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-6 py-2 hover:text-green-600 dark:hover:text-green-400 active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-6 py-2 hover:text-green-600 dark:hover:text-green-400 active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
