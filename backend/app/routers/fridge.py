@@ -27,8 +27,15 @@ async def analyze_fridge(
             detail=f"Invalid file type '{file.content_type}'. Allowed: JPEG, PNG, WebP, GIF.",
         )
 
-    # Read and validate size
+    # Fast pre-check via Content-Length header before buffering the body
     max_bytes = settings.max_file_size_mb * 1024 * 1024
+    content_length = file.headers.get("content-length")
+    if content_length and int(content_length) > max_bytes:
+        raise HTTPException(
+            status_code=413,
+            detail=f"File too large. Maximum size is {settings.max_file_size_mb} MB.",
+        )
+
     image_data = await file.read()
     if len(image_data) > max_bytes:
         raise HTTPException(

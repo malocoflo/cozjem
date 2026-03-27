@@ -34,7 +34,7 @@ async def analyze_fridge_image(image_data: bytes, mime_type: str) -> FridgeAnaly
         return FridgeAnalysisResponse(ingredients=ingredients)
     except json.JSONDecodeError as e:
         logger.error("Failed to parse Gemini response as JSON: %s", e)
-        raise ValueError(f"Invalid JSON response from Gemini: {e}")
+        raise ValueError("Invalid JSON response from Gemini API")
     except Exception as e:
         logger.error("Gemini API error: %s", e)
         raise
