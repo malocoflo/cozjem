@@ -152,7 +152,9 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: AppColors.surface,
       extendBodyBehindAppBar: true,
       appBar: GlassmorphismAppBar(
-        onMenuTap: () => Scaffold.of(context).openDrawer(),
+        onMenuTap: () {
+          // Drawer not yet implemented — no-op
+        },
       ),
       body: SingleChildScrollView(
         child: Column(
