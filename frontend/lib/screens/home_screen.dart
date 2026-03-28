@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../models/ingredient.dart';
 import '../models/recipe.dart';
 import '../services/camera_service.dart';
 import '../services/api_service.dart';

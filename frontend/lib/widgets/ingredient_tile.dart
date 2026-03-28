@@ -18,7 +18,7 @@ class IngredientTile extends StatelessWidget {
     if (lower.contains('nabiał') || lower.contains('jaj')) {
       return Icons.egg_outlined;
     } else if (lower.contains('warzywa') || lower.contains('owoc')) {
-      return Icons.nutrition_outlined;
+      return Icons.local_dining_outlined;
     } else if (lower.contains('napój') || lower.contains('mleko')) {
       return Icons.water_drop_outlined;
     } else if (lower.contains('mięso') || lower.contains('ryba')) {
@@ -81,7 +81,7 @@ class IngredientTile extends StatelessWidget {
               child: Container(
                 width: 28,
                 height: 28,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: AppColors.surfaceContainerHigh,
                   shape: BoxShape.circle,
                 ),

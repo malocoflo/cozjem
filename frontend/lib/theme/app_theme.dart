@@ -144,7 +144,7 @@ class AppTheme {
           ),
         ),
         scaffoldBackgroundColor: AppColors.surface,
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           color: AppColors.surfaceContainerLowest,
           elevation: 0,
           shape: RoundedRectangleBorder(
