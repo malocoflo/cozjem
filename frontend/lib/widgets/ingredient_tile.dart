@@ -43,7 +43,7 @@ class IngredientTile extends StatelessWidget {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: AppColors.primary.withOpacity(0.1),
+              color: AppColors.primary.withAlpha((0.1 * 255).toInt()),
               shape: BoxShape.circle,
             ),
             child: Icon(
@@ -81,8 +81,8 @@ class IngredientTile extends StatelessWidget {
               child: Container(
                 width: 28,
                 height: 28,
-                decoration: const BoxDecoration(
-                  color: AppColors.surfaceContainerHigh,
+                decoration: BoxDecoration(
+                  color: AppColors.surfaceContainerHigh.withAlpha((0.1 * 255).toInt()),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
