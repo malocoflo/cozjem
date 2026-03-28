@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import '../models/ingredient.dart';
+import '../models/recipe.dart';
 
 class ApiException implements Exception {
   final int? statusCode;
@@ -17,10 +18,28 @@ class ApiService {
   final String baseUrl;
 
   ApiService({String? baseUrl})
-      : baseUrl = baseUrl ?? const String.fromEnvironment(
-          'API_BASE_URL',
-          defaultValue: 'http://localhost:8000',
+      : baseUrl = _normalizeBaseUrl(
+          baseUrl ??
+              const String.fromEnvironment(
+                'API_BASE_URL',
+                defaultValue: 'http://localhost:8000',
+              ),
         );
+
+  static String _normalizeBaseUrl(String rawBaseUrl) {
+    final uri = Uri.tryParse(rawBaseUrl);
+    if (uri == null) {
+      return rawBaseUrl;
+    }
+
+    // Android emulator maps the host machine to 10.0.2.2, not localhost.
+    if (Platform.isAndroid &&
+        (uri.host == 'localhost' || uri.host == '127.0.0.1')) {
+      return uri.replace(host: '10.0.2.2').toString();
+    }
+
+    return rawBaseUrl;
+  }
 
   Future<List<Ingredient>> analyzeFridge(File imageFile) async {
     final uri = Uri.parse('$baseUrl/api/analyze-fridge');
@@ -71,6 +90,11 @@ class ApiService {
         statusCode: 503,
         message: 'Usługa AI jest chwilowo niedostępna. Spróbuj ponownie.',
       );
+    } else if (response.statusCode == 429) {
+      throw ApiException(
+        statusCode: 429,
+        message: 'Przekroczono limit zapytań do AI (quota). Sprawdź plan i limity klucza API.',
+      );
     } else {
       throw ApiException(
         statusCode: response.statusCode,
@@ -91,6 +115,55 @@ class ApiService {
         return 'image/webp';
       default:
         return 'image/jpeg';
+    }
+  }
+
+  Future<List<Recipe>> suggestRecipes(List<Ingredient> ingredients) async {
+    final uri = Uri.parse('$baseUrl/api/suggest-recipes');
+    final body = json.encode({
+      'ingredients': ingredients.map((e) => e.name).toList(),
+    });
+
+    http.Response response;
+    try {
+      response = await http
+          .post(
+            uri,
+            headers: {'Content-Type': 'application/json'},
+            body: body,
+          )
+          .timeout(const Duration(seconds: 30));
+    } on SocketException {
+      throw const ApiException(
+        message: 'Brak połączenia z serwerem.',
+      );
+    } on HttpException {
+      throw const ApiException(
+        message: 'Błąd połączenia HTTP.',
+      );
+    }
+
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body) as Map<String, dynamic>;
+      final recipes = data['recipes'] as List<dynamic>? ?? [];
+      return recipes
+          .asMap()
+          .entries
+          .map((e) => Recipe.fromApiJson(
+                e.value as Map<String, dynamic>,
+                id: '${e.key}',
+              ))
+          .toList();
+    } else if (response.statusCode == 429) {
+      throw const ApiException(
+        statusCode: 429,
+        message: 'Przekroczono limit AI. Spróbuj ponownie później.',
+      );
+    } else {
+      throw ApiException(
+        statusCode: response.statusCode,
+        message: 'Błąd serwera: ${response.statusCode}.',
+      );
     }
   }
 }

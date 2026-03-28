@@ -8,6 +8,7 @@ logger = logging.getLogger(__name__)
 
 class Settings(BaseSettings):
     gemini_api_key: str = ""
+    gemini_model: str = "gemini-2.5-flash"
     max_file_size_mb: int = 10
     allowed_origins: list[str] = ["*"]
 

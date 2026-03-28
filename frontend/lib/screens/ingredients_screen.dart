@@ -2,9 +2,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/ingredient.dart';
+import '../models/recipe.dart';
+import '../services/api_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/ingredient_tile.dart';
 import '../widgets/ingredient_floating_plate.dart';
+import '../widgets/recipe_card.dart';
 import 'recipes_screen.dart';
 
 class IngredientsScreen extends StatefulWidget {
@@ -24,6 +27,11 @@ class IngredientsScreen extends StatefulWidget {
 class _IngredientsScreenState extends State<IngredientsScreen> {
   late List<Ingredient> _ingredients;
   final TextEditingController _addController = TextEditingController();
+  final ApiService _apiService = ApiService();
+
+  List<Recipe>? _suggestedRecipes;
+  bool _loadingRecipes = false;
+  String? _recipesError;
 
   final List<Map<String, dynamic>> _popularAdditions = [
     {'name': 'Ser', 'icon': Icons.circle_outlined},
@@ -36,6 +44,7 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
   void initState() {
     super.initState();
     _ingredients = List.from(widget.ingredients);
+    _fetchRecipes();
   }
 
   @override
@@ -64,6 +73,22 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
       ));
     });
     _addController.clear();
+  }
+
+  Future<void> _fetchRecipes() async {
+    if (_ingredients.isEmpty) return;
+    setState(() {
+      _loadingRecipes = true;
+      _recipesError = null;
+    });
+    try {
+      final recipes = await _apiService.suggestRecipes(_ingredients);
+      if (mounted) setState(() => _suggestedRecipes = recipes);
+    } catch (e) {
+      if (mounted) setState(() => _recipesError = e.toString());
+    } finally {
+      if (mounted) setState(() => _loadingRecipes = false);
+    }
   }
 
   @override
@@ -174,7 +199,103 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                 ),
               ),
             const SizedBox(height: 16),
-            // Add ingredient
+            // ── Suggested recipes section ──────────────────────────
+            Row(
+              children: [
+                Text(
+                  'Przepisy dla Ciebie',
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.onSurface,
+                  ),
+                ),
+                const Spacer(),
+                if (!_loadingRecipes)
+                  GestureDetector(
+                    onTap: _fetchRecipes,
+                    child: const Icon(
+                      Icons.refresh_rounded,
+                      size: 20,
+                      color: AppColors.onSurfaceVariant,
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            if (_loadingRecipes)
+              const Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 24),
+                  child: CircularProgressIndicator(),
+                ),
+              )
+            else if (_recipesError != null)
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: AppColors.error.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.error_outline_rounded,
+                        color: AppColors.error, size: 18),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        _recipesError!,
+                        style: GoogleFonts.inter(
+                            fontSize: 12, color: AppColors.error),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            else if (_suggestedRecipes != null && _suggestedRecipes!.isEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: Text(
+                  'Nie znaleziono przepisów dla tych składników.',
+                  style: GoogleFonts.inter(color: AppColors.onSurfaceVariant),
+                ),
+              )
+            else if (_suggestedRecipes != null)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (_suggestedRecipes!
+                      .any((r) =>
+                          r.allIngredientsAvailable ||
+                          r.matchedIngredients >= r.totalIngredients))
+                    _RecipesRow(
+                      label: 'Możesz zrobić teraz',
+                      labelIcon: Icons.check_circle_rounded,
+                      labelColor: const Color(0xFF2E7D32),
+                      recipes: _suggestedRecipes!
+                          .where((r) =>
+                              r.allIngredientsAvailable ||
+                              r.matchedIngredients >= r.totalIngredients)
+                          .toList(),
+                    ),
+                  if (_suggestedRecipes!
+                      .any((r) =>
+                          !r.allIngredientsAvailable &&
+                          r.matchedIngredients < r.totalIngredients))
+                    _RecipesRow(
+                      label: 'Brakuje kilku składników',
+                      labelIcon: Icons.shopping_cart_outlined,
+                      labelColor: AppColors.onSurfaceVariant,
+                      recipes: _suggestedRecipes!
+                          .where((r) =>
+                              !r.allIngredientsAvailable &&
+                              r.matchedIngredients < r.totalIngredients)
+                          .toList(),
+                    ),
+                ],
+              ),
+            const SizedBox(height: 16),
+            // ── Add ingredient ─────────────────────────────────────
             Text(
               'Brakuje czegoś?',
               style: GoogleFonts.inter(
@@ -289,6 +410,57 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _RecipesRow extends StatelessWidget {
+  final String label;
+  final IconData labelIcon;
+  final Color labelColor;
+  final List<Recipe> recipes;
+
+  const _RecipesRow({
+    required this.label,
+    required this.labelIcon,
+    required this.labelColor,
+    required this.recipes,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Icon(labelIcon, size: 16, color: labelColor),
+            const SizedBox(width: 6),
+            Text(
+              label,
+              style: GoogleFonts.inter(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: labelColor,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        SizedBox(
+          height: 200,
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemCount: recipes.length,
+            separatorBuilder: (_, __) => const SizedBox(width: 12),
+            itemBuilder: (context, index) => SizedBox(
+              width: 150,
+              child: RecipeCard(recipe: recipes[index]),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+      ],
     );
   }
 }

@@ -19,6 +19,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final CameraService _cameraService = CameraService();
   final ApiService _apiService = ApiService();
   int _currentNavIndex = 0;
@@ -145,21 +146,93 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Widget _buildDrawer(BuildContext context) {
+    return Drawer(
+      backgroundColor: AppColors.surface,
+      child: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'CoZjem',
+                    style: GoogleFonts.plusJakartaSans(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w800,
+                      fontStyle: FontStyle.italic,
+                      color: AppColors.primary,
+                    ),
+                  ),
+                  Text(
+                    'AI fridge scanner',
+                    style: GoogleFonts.inter(
+                      fontSize: 13,
+                      color: AppColors.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Divider(height: 1),
+            const SizedBox(height: 8),
+            _DrawerItem(
+              icon: Icons.home_rounded,
+              label: 'Strona główna',
+              onTap: () => Navigator.pop(context),
+            ),
+            _DrawerItem(
+              icon: Icons.camera_alt_rounded,
+              label: 'Skanuj lodówkę',
+              onTap: () {
+                Navigator.pop(context);
+                _handleScan();
+              },
+            ),
+            _DrawerItem(
+              icon: Icons.photo_library_outlined,
+              label: 'Wybierz z galerii',
+              onTap: () {
+                Navigator.pop(context);
+                _handleGallery();
+              },
+            ),
+            const Spacer(),
+            const Divider(height: 1),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(
+                'CoZjem v1.0.0',
+                style: GoogleFonts.inter(
+                  fontSize: 12,
+                  color: AppColors.onSurfaceVariant,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: AppColors.surface,
       extendBodyBehindAppBar: true,
+      drawer: _buildDrawer(context),
       appBar: GlassmorphismAppBar(
-        onMenuTap: () {
-          // Drawer not yet implemented — no-op
-        },
+        onMenuTap: () => _scaffoldKey.currentState?.openDrawer(),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: kToolbarHeight + 20),
+            SizedBox(height: MediaQuery.of(context).padding.top + kToolbarHeight + 20),
             // Hero headline
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 8, 24, 0),
@@ -300,6 +373,36 @@ class _HomeScreenState extends State<HomeScreen> {
           child: const Icon(Icons.add_rounded, color: Colors.white, size: 28),
         ),
       ),
+    );
+  }
+}
+
+class _DrawerItem extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  const _DrawerItem({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon, color: AppColors.onSurface),
+      title: Text(
+        label,
+        style: GoogleFonts.inter(
+          fontSize: 15,
+          fontWeight: FontWeight.w500,
+          color: AppColors.onSurface,
+        ),
+      ),
+      onTap: onTap,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     );
   }
 }

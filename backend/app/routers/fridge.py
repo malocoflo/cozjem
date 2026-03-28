@@ -1,6 +1,6 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
-from ..models.schemas import FridgeAnalysisResponse
-from ..services.gemini_service import analyze_fridge_image
+from ..models.schemas import FridgeAnalysisResponse, IngredientsRequest, RecipeSuggestionsResponse
+from ..services.gemini_service import analyze_fridge_image, suggest_recipes, GeminiServiceError
 from ..config import Settings, get_settings
 import logging
 
@@ -41,8 +41,38 @@ async def analyze_fridge(
         return result
     except ValueError as e:
         raise HTTPException(status_code=500, detail=str(e))
+    except GeminiServiceError as e:
+        raise HTTPException(status_code=e.status_code, detail=e.message)
     except Exception as e:
         logger.error("Unexpected error analyzing fridge: %s", e)
+        raise HTTPException(
+            status_code=503,
+            detail="AI service temporarily unavailable. Please try again later.",
+        )
+
+
+@router.post(
+    "/suggest-recipes",
+    response_model=RecipeSuggestionsResponse,
+    summary="Suggest recipes based on detected ingredients",
+)
+async def suggest_recipes_endpoint(
+    request: IngredientsRequest,
+):
+    if not request.ingredients:
+        raise HTTPException(
+            status_code=400,
+            detail="At least one ingredient must be provided.",
+        )
+
+    try:
+        return await suggest_recipes(request.ingredients)
+    except ValueError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    except GeminiServiceError as e:
+        raise HTTPException(status_code=e.status_code, detail=e.message)
+    except Exception as e:
+        logger.error("Unexpected error suggesting recipes: %s", e)
         raise HTTPException(
             status_code=503,
             detail="AI service temporarily unavailable. Please try again later.",

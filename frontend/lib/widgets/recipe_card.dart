@@ -148,7 +148,9 @@ class RecipeCard extends StatelessWidget {
                         ),
                       ],
                       const SizedBox(height: 8),
-                      Row(
+                      Wrap(
+                        spacing: 4,
+                        crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
                           Text(
                             'Zobacz przepis',
@@ -158,7 +160,6 @@ class RecipeCard extends StatelessWidget {
                               color: AppColors.primary,
                             ),
                           ),
-                          const SizedBox(width: 4),
                           const Icon(
                             Icons.arrow_forward_rounded,
                             size: 14,
